@@ -10,4 +10,5 @@ public interface UsuarioService {
     //Usuario getUsuario(String usuario);
     void deleteUsuario(String usuario);
     Usuario findUsuarioByLoginAndPassword(String login, String password);
+    List<Usuario> activosInactivosRevocados(Character c);
 }

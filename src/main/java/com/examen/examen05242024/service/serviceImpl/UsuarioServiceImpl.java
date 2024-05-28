@@ -38,4 +38,9 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioRepository.findUsuarioByLoginAndPassword(login, password);
     }
 
+    @Override
+    public List<Usuario> activosInactivosRevocados(Character c) {
+        return usuarioRepository.findUsuariobyLetter(c);
+    }
+
 }

@@ -31,6 +31,11 @@ public class UsuarioController {
         return usuarioService.getUsuarios();
     }
 
+    @GetMapping("/busquedaLetra/{letra}")
+    public List<Usuario> getBusqueda(@PathVariable Character letra){
+        return usuarioService.activosInactivosRevocados(letra);
+    }
+
     @PostMapping("/usuarios")
     public ResponseEntity<?> postUsuarios(@RequestBody Usuario usuario){
         Usuario usuarioNew = null;

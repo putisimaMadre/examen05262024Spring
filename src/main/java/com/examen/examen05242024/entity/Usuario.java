@@ -31,7 +31,7 @@ public class Usuario {
     private Date fechabaja;
     @Basic
     @Column(name = "status")
-    private String status;
+    private Character status;
     @Basic
     @Column(name = "intentos")
     private double intentos;
@@ -113,11 +113,11 @@ public class Usuario {
         this.fechabaja = fechabaja;
     }
 
-    public String getStatus() {
+    public Character getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Character status) {
         this.status = status;
     }
 
