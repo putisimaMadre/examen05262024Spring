@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface UsuarioService {
     List<Usuario> getUsuarios();
+    Usuario getUsuariosEditar(String login);
     Usuario postUsuario(Usuario usuario);
     //Usuario getUsuario(String usuario);
     void deleteUsuario(String usuario);

@@ -36,6 +36,11 @@ public class UsuarioController {
         return usuarioService.activosInactivosRevocados(letra);
     }
 
+    @GetMapping("/usuarios/{login}")
+    public Usuario getUsuarioEditar(@PathVariable String login){
+        return usuarioService.getUsuariosEditar(login);
+    }
+
     @PostMapping("/usuarios")
     public ResponseEntity<?> postUsuarios(@RequestBody Usuario usuario){
         Usuario usuarioNew = null;
@@ -73,11 +78,11 @@ public class UsuarioController {
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
 
-    @PutMapping("/usuarios/{login}/{password}")
-    public ResponseEntity<?> updateUsuario(@RequestBody Usuario usuario, @PathVariable String login, @PathVariable String password){
+    @PutMapping("/usuarios/{login}")
+    public ResponseEntity<?> updateUsuario(@RequestBody Usuario usuario, @PathVariable String login){
         Usuario usuarioActual = null;
         Map<String, Object> response = new HashMap<>();
-        usuarioActual = usuarioService.findUsuarioByLoginAndPassword(login, password);
+        usuarioActual = usuarioService.getUsuariosEditar(login);
         if (usuarioActual == null) {
             response.put("mensaje: ", "No exite id".concat(login));
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);

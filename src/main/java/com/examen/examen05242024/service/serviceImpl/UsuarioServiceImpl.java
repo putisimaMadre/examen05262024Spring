@@ -19,6 +19,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
+    public Usuario getUsuariosEditar(String login) {
+        return usuarioRepository.findById(login).orElse(null);
+    }
+
+    @Override
     public Usuario postUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
