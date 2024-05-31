@@ -88,6 +88,7 @@ public class UsuarioController {
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
         try {
+            usuario.setPassword(utils.Encriptar(usuario.getPassword()));
             usuarioActual.setLogin(usuario.getLogin());
             usuarioActual.setPassword(usuario.getPassword());
             usuarioActual.setNombre(usuario.getNombre());
